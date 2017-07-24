@@ -78,6 +78,9 @@ export class ArrayList<T extends Comparable<T>> extends List<T>{
     }
 
     addAll(items: List<T>): void {
+        if (items == null) {
+            return;
+        }
         for (let i = 0; i < items.size(); i++) {
             this.add(items.get(i));
         }
