@@ -1,0 +1,25 @@
+{
+  "name": "ts-list",
+  "version": "1.0.0",
+  "description": "Typescript implementation for List with ArrayList",
+  "main": "list.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oberpro/ts-list.git"
+  },
+  "keywords": [
+    "list",
+    "arraylist",
+    "typescript",
+    "list"
+  ],
+  "author": "oberpro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oberpro/ts-list/issues"
+  },
+  "homepage": "https://github.com/oberpro/ts-list#readme"
+}
