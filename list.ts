@@ -16,61 +16,53 @@ export enum ORDER {
     ASC, DESC
 }
 
-export abstract class List<T extends Comparable<T>> implements Serializable {
+export interface List<T extends Comparable<T>> extends Serializable {
 
-    abstract add(item: T): boolean;
+    add(item: T): boolean;
 
-    abstract addAll(items: List<T>): void;
+    addAll(items: List<T>): void;
 
-    abstract remove(item: T): boolean;
+    remove(item: T): boolean;
 
-    abstract removeIndex(index: number): boolean;
+    removeIndex(index: number): boolean;
 
-    abstract size(): number;
+    size(): number;
 
-    abstract isEmpty(): boolean;
+    isEmpty(): boolean;
 
-    abstract contains(item: T): boolean;
+    contains(item: T): boolean;
 
-    abstract indexOf(item: T): number;
+    indexOf(item: T): number;
 
-    abstract set(index: number, item: T): T;
+    set(index: number, item: T): T;
 
-    abstract get(index: number): T;
+    get(index: number): T;
 
-    abstract swap(p: number, q: number): void;
+    swap(p: number, q: number): void;
 
-    abstract sublist(start: number, end: number): List<T>;
+    sublist(start: number, end: number): List<T>;
 
-    abstract order(way?: ORDER): List<T>;
+    order(way?: ORDER): List<T>;
 
-    abstract toArray(): T[];
+    toArray(): T[];
 
-    abstract clear(): void;
+    clear(): void;
 
-    abstract pagination(pagenumber: number, itemsPerPage: number): List<T>;
+    pagination(pagenumber: number, itemsPerPage: number): List<T>;
 
-    abstract serializeImpl(): string;
+    serialize(): string;
 
-    abstract deserializeImpl(content: string): void;
+    deserialize(content: string): void;
 
-    serialize(): string {
-        return this.serializeImpl();
-    }
-
-    deserialize(content: string): void {
-        this.deserializeImpl(content);
-    }
 }
 
 
 
-export class ArrayList<T extends Comparable<T>> extends List<T>{
+export class ArrayList<T extends Comparable<T>> implements List<T>{
 
     private array: T[] = [];
 
     constructor() {
-        super();
     }
 
     toArray(): T[] {
@@ -183,10 +175,12 @@ export class ArrayList<T extends Comparable<T>> extends List<T>{
         return true;
     }
 
-    serializeImpl(): string {
+    serialize(): string {
         return JSON.stringify(this.array);
     }
-    deserializeImpl(content: string): void {
+
+    deserialize(content: string): void {
         this.array = JSON.parse(content);
     }
+
 }
