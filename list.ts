@@ -180,7 +180,9 @@ export class ArrayList<T extends Comparable<T>> implements List<T>{
     }
 
     deserialize(content: string): void {
-        this.array = JSON.parse(content);
+        if (content != null && content.length > 0) {
+            this.array = JSON.parse(content);
+        }
     }
 
 }
