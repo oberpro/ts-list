@@ -54,11 +54,14 @@ export interface List<T extends Comparable<T>> extends Serializable {
 
     deserialize(content: string): void;
 
+    forEach(callbackfn: (value: T, index: number, array: T[]) => void, thisArg?: any): void;
+
 }
 
 
 
 export class ArrayList<T extends Comparable<T>> implements List<T>{
+
 
     private array: T[] = [];
 
@@ -93,6 +96,10 @@ export class ArrayList<T extends Comparable<T>> implements List<T>{
             }
         }
         return this;
+    }
+
+    forEach(callbackfn: (value: T, index: number, array: T[]) => void, thisArg?: any): void {
+        this.array.forEach(callbackfn);
     }
 
     swap(p: number, q: number): void {
