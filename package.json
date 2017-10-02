@@ -1,6 +1,6 @@
 {
   "name": "ts-list",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Typescript implementation for List with ArrayList",
   "main": "list.ts",
   "scripts": {
