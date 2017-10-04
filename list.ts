@@ -50,9 +50,9 @@ export interface List<T extends Comparable<T>> extends Serializable {
 
     pagination(pagenumber: number, itemsPerPage: number): List<T>;
 
-    serialize(): string;
+    serialize(): any;
 
-    deserialize(content: string): void;
+    deserialize(content: any): void;
 
     forEach(callbackfn: (value: T, index: number, array: T[]) => void, thisArg?: any): void;
 
